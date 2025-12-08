@@ -1,0 +1,172 @@
+/* Mobile Breakpoint: < 768px */
+@media (max-width: 767px) {
+  :root {
+    --header-height: 52px;
+  }
+
+  /* Toolbar adjustments */
+  #toolbar {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .toolbar-logo span:not(.toolbar-logo-icon) {
+    display: none;
+  }
+
+  .toolbar-divider {
+    display: none;
+  }
+
+  .upload-btn span:not(.upload-btn-icon) {
+    display: none;
+  }
+
+  .upload-btn {
+    padding: 8px 10px;
+  }
+
+  .toolbar-btn span:not(.toolbar-btn-icon) {
+    display: none;
+  }
+
+  .toolbar-btn {
+    padding: 8px 10px;
+  }
+
+  .theme-picker-label {
+    display: none;
+  }
+
+  .theme-picker-select {
+    min-width: 100px;
+    padding: 8px 28px 8px 10px;
+  }
+
+  /* Stack panels vertically */
+  #main-content {
+    flex-direction: column;
+  }
+
+  .panel {
+    min-width: 0;
+    min-height: 0;
+    flex: 1;
+  }
+
+  .divider {
+    width: 100%;
+    height: var(--divider-width);
+    cursor: row-resize;
+  }
+
+  .divider::after {
+    width: 24px;
+    height: 2px;
+  }
+
+  #preview-container {
+    padding: 16px;
+  }
+
+  .preview-content {
+    padding: 16px;
+  }
+
+  /* Toast positioning */
+  #toast-container {
+    bottom: 12px;
+    right: 12px;
+    left: 12px;
+  }
+
+  .toast {
+    min-width: auto;
+    max-width: none;
+    width: 100%;
+  }
+}
+
+/* Tablet Breakpoint: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .toolbar-btn span:not(.toolbar-btn-icon) {
+    display: none;
+  }
+
+  .toolbar-btn {
+    padding: 8px 10px;
+  }
+
+  .toolbar-btn-primary span:not(.toolbar-btn-icon) {
+    display: inline;
+  }
+
+  .toolbar-btn-primary {
+    padding: 8px 14px;
+  }
+
+  .preview-content {
+    padding: 24px;
+  }
+}
+
+/* Large screens: >= 1440px */
+@media (min-width: 1440px) {
+  .preview-content {
+    max-width: 1000px;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles for the app itself (not preview content) */
+@media print {
+  #toolbar,
+  .divider,
+  #editor-panel,
+  #toast-container {
+    display: none !important;
+  }
+
+  #main-content {
+    position: static;
+    display: block;
+  }
+
+  #preview-panel {
+    border: none;
+    background: none;
+  }
+
+  #preview-container {
+    overflow: visible;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --color-border: #1a1a1a;
+    --color-text-muted: #4a4a4a;
+  }
+
+  .toolbar-btn,
+  .upload-btn,
+  .theme-picker-select {
+    border-width: 2px;
+  }
+}
+
+/* Dark mode support (future enhancement) */
+@media (prefers-color-scheme: dark) {
+  /* Reserve for future dark mode implementation */
+}

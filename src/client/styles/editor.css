@@ -1,0 +1,124 @@
+#editor-container {
+  height: 100%;
+  overflow: hidden;
+}
+
+#editor-container .cm-editor {
+  height: 100%;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+#editor-container .cm-editor.cm-focused {
+  outline: none;
+}
+
+#editor-container .cm-scroller {
+  overflow: auto;
+  font-family: inherit;
+}
+
+#editor-container .cm-content {
+  padding: 16px 0;
+}
+
+#editor-container .cm-line {
+  padding: 0 16px;
+}
+
+/* Line numbers */
+#editor-container .cm-gutters {
+  background-color: var(--color-bg-secondary);
+  border-right: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+#editor-container .cm-lineNumbers .cm-gutterElement {
+  padding: 0 12px 0 8px;
+  min-width: 40px;
+  font-size: 12px;
+}
+
+#editor-container .cm-activeLineGutter {
+  background-color: var(--color-border);
+}
+
+/* Active line highlight */
+#editor-container .cm-activeLine {
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+/* Selection */
+#editor-container .cm-selectionBackground {
+  background-color: rgba(37, 99, 235, 0.15) !important;
+}
+
+#editor-container .cm-editor.cm-focused .cm-selectionBackground {
+  background-color: rgba(37, 99, 235, 0.2) !important;
+}
+
+/* Cursor */
+#editor-container .cm-cursor {
+  border-left-color: var(--color-primary);
+  border-left-width: 2px;
+}
+
+/* Placeholder */
+#editor-container .cm-placeholder {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* Search match highlight */
+#editor-container .cm-searchMatch {
+  background-color: rgba(255, 213, 0, 0.4);
+  outline: 1px solid rgba(255, 213, 0, 0.6);
+}
+
+#editor-container .cm-searchMatch.cm-searchMatch-selected {
+  background-color: rgba(255, 150, 0, 0.5);
+}
+
+/* Markdown-specific styling */
+#editor-container .cm-header {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+#editor-container .cm-strong {
+  font-weight: 700;
+}
+
+#editor-container .cm-emphasis {
+  font-style: italic;
+}
+
+#editor-container .cm-strikethrough {
+  text-decoration: line-through;
+}
+
+#editor-container .cm-link {
+  color: var(--color-info);
+  text-decoration: underline;
+}
+
+#editor-container .cm-url {
+  color: var(--color-text-muted);
+}
+
+#editor-container .cm-meta {
+  color: var(--color-text-muted);
+}
+
+#editor-container .cm-comment {
+  color: var(--color-text-muted);
+}
+
+/* Inline code */
+#editor-container .cm-monospace {
+  font-family: var(--font-mono);
+  background-color: var(--color-bg-secondary);
+  border-radius: 3px;
+  padding: 1px 4px;
+}

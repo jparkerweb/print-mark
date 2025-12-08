@@ -3,11 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Convert Markdown to clean, printable HTML with PDF export" />
     <title>print-mark - Markdown to PDF</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>" />
     <link rel="stylesheet" href="styles/app.css" />
   </head>
   <body>
-    <div id="app"></div>
+    <header id="toolbar"></header>
+    <main id="main-content">
+      <div id="editor-panel" class="panel">
+        <div id="editor-container"></div>
+      </div>
+      <div id="divider" class="divider"></div>
+      <div id="preview-panel" class="panel">
+        <div id="preview-container"></div>
+      </div>
+    </main>
+    <div id="toast-container"></div>
     <script type="module" src="main.ts"></script>
   </body>
 </html>
