@@ -28,3 +28,9 @@ export interface HealthResponse {
   status: 'healthy'
   version: string
 }
+
+export interface MarkdownRenderOptions {
+  sanitize?: boolean
+}
+
+export type { SanitizeConfig } from './sanitize-config.js'
