@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 import { config } from './config.js'
 import { registerHealthRoute } from './routes/health.js'
+import { registerThemesRoute } from './routes/themes.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -27,8 +28,9 @@ async function start() {
     },
   })
 
-  // Register health route
+  // Register API routes
   registerHealthRoute(server)
+  registerThemesRoute(server)
 
   // Register static file serving for the client build
   await server.register(fastifyStatic, {

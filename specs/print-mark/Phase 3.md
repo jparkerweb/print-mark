@@ -1,6 +1,6 @@
 # Phase 3: Theme System
 
-**Status:** Not Started
+**Status:** Complete
 **Estimated Tasks:** 22 tasks
 
 ## Overview
@@ -9,14 +9,14 @@ This phase creates the print-optimized CSS theme system. Themes are designed for
 
 ## Prerequisites
 
-- [ ] Phase 2 must be complete
-- [ ] Markdown rendering works on both client and server
+- [x] Phase 2 must be complete
+- [x] Markdown rendering works on both client and server
 
 ## Tasks
 
 ### Base Print Stylesheet
 
-- [ ] **Task 3.1:** Create base print stylesheet
+- [x] **Task 3.1:** Create base print stylesheet
   - File: `src/client/styles/themes/_base.css`
   - Reset print margins and padding
   - Set `box-sizing: border-box` globally
@@ -31,7 +31,7 @@ This phase creates the print-optimized CSS theme system. Themes are designed for
   - Style blockquotes (left border, italic, indentation)
   - Style horizontal rules
 
-- [ ] **Task 3.2:** Add code block styling to base stylesheet
+- [x] **Task 3.2:** Add code block styling to base stylesheet
   - In `src/client/styles/themes/_base.css`
   - Style `pre` and `code` elements
   - Set monospace font stack: `'SF Mono', 'Fira Code', 'Consolas', monospace`
@@ -39,20 +39,20 @@ This phase creates the print-optimized CSS theme system. Themes are designed for
   - Prevent code from overflowing page (word-wrap)
   - Style inline code differently from code blocks
 
-- [ ] **Task 3.3:** Add table styling to base stylesheet
+- [x] **Task 3.3:** Add table styling to base stylesheet
   - In `src/client/styles/themes/_base.css`
   - Style tables with borders, proper cell padding
   - Alternate row colors (zebra striping) using CSS
   - Ensure tables don't overflow page width
   - Style table headers (bold, background color)
 
-- [ ] **Task 3.4:** Add task list styling to base stylesheet
+- [x] **Task 3.4:** Add task list styling to base stylesheet
   - In `src/client/styles/themes/_base.css`
   - Style task list checkboxes
   - Remove default list bullets for task lists
   - Style checked vs unchecked states
 
-- [ ] **Task 3.5:** Add print-specific rules to base stylesheet
+- [x] **Task 3.5:** Add print-specific rules to base stylesheet
   - In `src/client/styles/themes/_base.css`
   - `@media print` rules
   - Avoid page breaks inside code blocks, blockquotes, tables
@@ -60,7 +60,7 @@ This phase creates the print-optimized CSS theme system. Themes are designed for
   - Remove decorative elements that don't print well
   - Set appropriate page margins
 
-- [ ] **Task 3.6:** Add footnote styling to base stylesheet
+- [x] **Task 3.6:** Add footnote styling to base stylesheet
   - In `src/client/styles/themes/_base.css`
   - Style footnote references (superscript)
   - Style footnote section at bottom
@@ -68,7 +68,7 @@ This phase creates the print-optimized CSS theme system. Themes are designed for
 
 ### Clean Theme
 
-- [ ] **Task 3.7:** Create Clean theme stylesheet
+- [x] **Task 3.7:** Create Clean theme stylesheet
   - File: `src/client/styles/themes/clean.css`
   - Import `_base.css`
   - Font: System sans-serif stack (`-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`)
@@ -77,14 +77,14 @@ This phase creates the print-optimized CSS theme system. Themes are designed for
   - Generous white space, clean margins
   - Minimal decorative elements
 
-- [ ] **Task 3.8:** Add Clean theme metadata
+- [x] **Task 3.8:** Add Clean theme metadata
   - In `src/client/styles/themes/clean.css`
   - CSS custom property: `--theme-id: 'clean'`
   - CSS custom property: `--theme-name: 'Clean'`
 
 ### Academic Theme
 
-- [ ] **Task 3.9:** Create Academic theme stylesheet
+- [x] **Task 3.9:** Create Academic theme stylesheet
   - File: `src/client/styles/themes/academic.css`
   - Import `_base.css`
   - Font: Serif stack (`Georgia, 'Times New Roman', Times, serif`)
@@ -93,7 +93,7 @@ This phase creates the print-optimized CSS theme system. Themes are designed for
   - Justified text alignment for body
   - Traditional academic paper styling
 
-- [ ] **Task 3.10:** Add Academic theme specific elements
+- [x] **Task 3.10:** Add Academic theme specific elements
   - In `src/client/styles/themes/academic.css`
   - Indent first line of paragraphs (except after headings)
   - Style blockquotes with smaller font, double indentation
@@ -102,7 +102,7 @@ This phase creates the print-optimized CSS theme system. Themes are designed for
 
 ### Modern Theme
 
-- [ ] **Task 3.11:** Create Modern theme stylesheet
+- [x] **Task 3.11:** Create Modern theme stylesheet
   - File: `src/client/styles/themes/modern.css`
   - Import `_base.css`
   - Font: `Inter, -apple-system, BlinkMacSystemFont, sans-serif`
@@ -111,7 +111,7 @@ This phase creates the print-optimized CSS theme system. Themes are designed for
   - Subtle colored accents for headings
   - Modern, tech-documentation feel
 
-- [ ] **Task 3.12:** Add Modern theme decorative elements
+- [x] **Task 3.12:** Add Modern theme decorative elements
   - In `src/client/styles/themes/modern.css`
   - Colored left border on code blocks
   - Subtle background on blockquotes
@@ -120,7 +120,7 @@ This phase creates the print-optimized CSS theme system. Themes are designed for
 
 ### Compact Theme
 
-- [ ] **Task 3.13:** Create Compact theme stylesheet
+- [x] **Task 3.13:** Create Compact theme stylesheet
   - File: `src/client/styles/themes/compact.css`
   - Import `_base.css`
   - Font: Small sans-serif, `'Segoe UI', Roboto, sans-serif`
@@ -128,7 +128,7 @@ This phase creates the print-optimized CSS theme system. Themes are designed for
   - Reduced margins and padding throughout
   - Optimized for maximum content per page
 
-- [ ] **Task 3.14:** Add Compact theme density optimizations
+- [x] **Task 3.14:** Add Compact theme density optimizations
   - In `src/client/styles/themes/compact.css`
   - Smaller heading sizes (h1: 18px, h2: 16px, etc.)
   - Tighter list spacing
@@ -137,17 +137,17 @@ This phase creates the print-optimized CSS theme system. Themes are designed for
 
 ### Theme Service (Server)
 
-- [ ] **Task 3.15:** Create theme service
+- [x] **Task 3.15:** Create theme service
   - File: `src/server/services/themes.ts`
   - Define themes metadata array with id, name, description for each theme
   - Export `ThemeService` class
 
-- [ ] **Task 3.16:** Implement `getThemes()` method
+- [x] **Task 3.16:** Implement `getThemes()` method
   - In `src/server/services/themes.ts`
   - Returns array of all theme metadata objects
   - Returns `Theme[]` type from shared types
 
-- [ ] **Task 3.17:** Implement `getThemeCSS()` method
+- [x] **Task 3.17:** Implement `getThemeCSS()` method
   - In `src/server/services/themes.ts`
   - Method signature: `getThemeCSS(themeId: ThemeId): Promise<string>`
   - Read CSS file from `dist/client/styles/themes/<themeId>.css`
@@ -155,32 +155,32 @@ This phase creates the print-optimized CSS theme system. Themes are designed for
   - Cache CSS content in memory for performance
   - Throw error for unknown theme IDs
 
-- [ ] **Task 3.18:** Export singleton instance
+- [x] **Task 3.18:** Export singleton instance
   - In `src/server/services/themes.ts`
   - Export `themeService` as singleton
 
 ### Themes API Endpoint
 
-- [ ] **Task 3.19:** Create themes route
+- [x] **Task 3.19:** Create themes route
   - File: `src/server/routes/themes.ts`
   - Export function that registers `GET /api/themes` route
   - Return `{ themes: Theme[] }` response
   - Use themeService.getThemes()
 
-- [ ] **Task 3.20:** Register themes route in server
+- [x] **Task 3.20:** Register themes route in server
   - File: `src/server/index.ts`
   - Import and register themes route
 
 ### Build Configuration
 
-- [ ] **Task 3.21:** Configure Vite to copy theme CSS
+- [x] **Task 3.21:** Configure Vite to copy theme CSS
   - File: `vite.config.ts`
   - Ensure theme CSS files are included in build output
   - CSS files should be in `dist/client/styles/themes/`
 
 ### Verification
 
-- [ ] **Task 3.22:** Verify theme system
+- [x] **Task 3.22:** Verify theme system
   - Build project with `npm run build`
   - Verify all theme CSS files exist in `dist/client/styles/themes/`
   - Call `GET /api/themes` - should return 4 themes
@@ -190,15 +190,15 @@ This phase creates the print-optimized CSS theme system. Themes are designed for
 
 ## Acceptance Criteria
 
-- [ ] Base stylesheet provides consistent foundation for all themes
-- [ ] All 4 themes (clean, academic, modern, compact) render correctly
-- [ ] `GET /api/themes` returns theme metadata for all themes
-- [ ] Theme CSS can be loaded by theme ID
-- [ ] Code blocks have proper syntax highlighting colors in each theme
-- [ ] Tables render with proper styling in each theme
-- [ ] Task lists show checkboxes correctly
-- [ ] Print preview in browser shows correct styling
-- [ ] Page breaks are handled appropriately (no orphaned headings)
+- [x] Base stylesheet provides consistent foundation for all themes
+- [x] All 4 themes (clean, academic, modern, compact) render correctly
+- [x] `GET /api/themes` returns theme metadata for all themes
+- [x] Theme CSS can be loaded by theme ID
+- [x] Code blocks have proper syntax highlighting colors in each theme
+- [x] Tables render with proper styling in each theme
+- [x] Task lists show checkboxes correctly
+- [x] Print preview in browser shows correct styling
+- [x] Page breaks are handled appropriately (no orphaned headings)
 
 ## Notes
 
@@ -212,19 +212,25 @@ This phase creates the print-optimized CSS theme system. Themes are designed for
 
 ## Phase Completion Summary
 
-_[To be filled after implementation]_
-
-**Completed:** [Date]
-**Implemented by:** [AI model/human]
+**Completed:** 2025-12-07
+**Implemented by:** Claude Opus 4.5
 
 ### What was done:
 
-[Brief summary]
+Implemented a complete print-optimized CSS theme system with 4 distinct themes (Clean, Academic, Modern, Compact). Created a comprehensive base stylesheet with CSS custom properties for typography, colors, and spacing. Built a ThemeService that provides theme metadata via API and loads/caches theme CSS content. Configured Vite to copy theme CSS files to the build output.
 
 ### Files created/modified:
 
-- [List files]
+- `src/client/styles/themes/_base.css` - Base print stylesheet with CSS custom properties
+- `src/client/styles/themes/clean.css` - Clean theme (minimal, professional)
+- `src/client/styles/themes/academic.css` - Academic theme (serif, justified, print-standard)
+- `src/client/styles/themes/modern.css` - Modern theme (contemporary with teal accents)
+- `src/client/styles/themes/compact.css` - Compact theme (maximum content density)
+- `src/server/services/themes.ts` - ThemeService class with getThemes() and getThemeCSS()
+- `src/server/routes/themes.ts` - GET /api/themes endpoint
+- `src/server/index.ts` - Registered themes route
+- `vite.config.ts` - Added plugin to copy theme CSS to build output
 
 ### Issues encountered:
 
-[Any blockers or deviations from spec - or "None"]
+None

@@ -1,0 +1,247 @@
+/* Academic Theme
+ * Traditional academic paper styling with serif fonts
+ * Suitable for essays, research papers, and formal documents
+ */
+
+@import './_base.css';
+
+/* Theme Metadata */
+:root {
+  --theme-id: 'academic';
+  --theme-name: 'Academic';
+}
+
+/* Academic Theme Overrides */
+:root {
+  /* Typography */
+  --font-body: Georgia, 'Times New Roman', Times, serif;
+  --font-heading: Georgia, 'Times New Roman', Times, serif;
+  --font-mono: 'Courier New', Courier, monospace;
+
+  /* Font Sizes - Print standard 12pt */
+  --font-size-base: 12pt;
+  --line-height-base: 1.5;
+
+  /* Colors - Traditional, conservative */
+  --color-text: #000000;
+  --color-heading: #000000;
+  --color-link: #00457c;
+  --color-link-visited: #4a2c5a;
+  --color-code-bg: #f5f5f5;
+  --color-code-border: #d0d0d0;
+  --color-blockquote-border: #888;
+  --color-blockquote-bg: transparent;
+  --color-table-border: #666;
+  --color-table-header-bg: #e8e8e8;
+  --color-table-stripe: #f8f8f8;
+  --color-hr: #999;
+
+  /* Spacing - Generous for readability */
+  --spacing-paragraph: 1em;
+  --spacing-heading: 1.75em;
+  --spacing-heading-bottom: 0.5em;
+  --spacing-list: 0.3em;
+  --spacing-code-block: 0.75em;
+}
+
+/* Academic body text - justified */
+body {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Academic headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  text-align: left;
+}
+
+h1 {
+  font-size: 1.75em;
+  text-align: center;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 1em;
+}
+
+h2 {
+  font-size: 1.4em;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: 2em;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+h4 {
+  font-size: 1.1em;
+}
+
+h5, h6 {
+  font-size: 1em;
+}
+
+/* Paragraph first-line indent (except after headings) */
+p + p {
+  text-indent: 2em;
+}
+
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p,
+blockquote + p,
+pre + p,
+ul + p,
+ol + p,
+table + p,
+hr + p {
+  text-indent: 0;
+}
+
+/* Academic blockquotes - smaller font, double indentation */
+blockquote {
+  margin-left: 2em;
+  margin-right: 2em;
+  padding-left: 1em;
+  font-size: 0.95em;
+  font-style: italic;
+  border-left-width: 2px;
+}
+
+blockquote p {
+  text-indent: 0 !important;
+}
+
+/* Academic code - minimal styling */
+pre {
+  border: 1px solid var(--color-code-border);
+  border-radius: 0;
+  font-size: 0.9em;
+}
+
+code {
+  border-radius: 0;
+  font-size: 0.9em;
+}
+
+/* Academic tables - clean, formal */
+table {
+  border-collapse: collapse;
+  margin: 1.5em auto;
+  font-size: 0.95em;
+}
+
+th {
+  border-top: 2px solid #000;
+  border-bottom: 1px solid #000;
+  background-color: transparent;
+  font-weight: bold;
+}
+
+tbody tr:last-child td {
+  border-bottom: 2px solid #000;
+}
+
+tbody tr:nth-child(even) {
+  background-color: transparent;
+}
+
+/* Table caption styling */
+caption {
+  font-style: italic;
+  margin-bottom: 0.5em;
+  text-align: left;
+}
+
+/* Academic footnotes - page bottom style */
+.footnotes {
+  font-size: 0.85em;
+  margin-top: 3em;
+  border-top: 1px solid #666;
+  padding-top: 1em;
+}
+
+.footnotes ol {
+  padding-left: 1.2em;
+}
+
+.footnote-ref a {
+  font-size: 0.8em;
+}
+
+/* Academic lists */
+ul, ol {
+  text-align: left;
+}
+
+/* Optional: Numbered headings class */
+.numbered-headings h2::before {
+  counter-increment: section;
+  content: counter(section) ". ";
+}
+
+.numbered-headings h3::before {
+  counter-increment: subsection;
+  content: counter(section) "." counter(subsection) " ";
+}
+
+.numbered-headings {
+  counter-reset: section;
+}
+
+.numbered-headings h2 {
+  counter-reset: subsection;
+}
+
+/* Links - conservative styling for print */
+a {
+  text-decoration: none;
+  color: var(--color-link);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Print optimizations for academic theme */
+@media print {
+  body {
+    font-size: 12pt;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: none;
+  }
+
+  /* Show URLs after links for print */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  /* Don't show URL for internal links */
+  a[href^="#"]::after {
+    content: none;
+  }
+
+  h1 {
+    margin-top: 0;
+  }
+
+  blockquote {
+    border-left-color: #000;
+  }
+
+  .footnotes {
+    border-top-color: #000;
+  }
+}

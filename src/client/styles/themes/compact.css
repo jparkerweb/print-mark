@@ -1,0 +1,254 @@
+/* Compact Theme
+ * Optimized for maximum content per page
+ * Small fonts, tight spacing, efficient use of space
+ */
+
+@import './_base.css';
+
+/* Theme Metadata */
+:root {
+  --theme-id: 'compact';
+  --theme-name: 'Compact';
+}
+
+/* Compact Theme Overrides */
+:root {
+  /* Typography */
+  --font-body: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: var(--font-body);
+  --font-mono: 'Cascadia Code', 'Consolas', 'Monaco', monospace;
+
+  /* Font Sizes - Small */
+  --font-size-base: 11px;
+  --line-height-base: 1.4;
+
+  /* Colors - High contrast for small text */
+  --color-text: #222222;
+  --color-heading: #000000;
+  --color-link: #0055aa;
+  --color-link-visited: #551a8b;
+  --color-code-bg: #f3f3f3;
+  --color-code-border: #ddd;
+  --color-blockquote-border: #999;
+  --color-blockquote-bg: transparent;
+  --color-table-border: #ccc;
+  --color-table-header-bg: #eee;
+  --color-table-stripe: #f8f8f8;
+  --color-hr: #ccc;
+
+  /* Spacing - Minimal */
+  --spacing-paragraph: 0.6em;
+  --spacing-heading: 0.8em;
+  --spacing-heading-bottom: 0.3em;
+  --spacing-list: 0.2em;
+  --spacing-code-block: 0.6em;
+}
+
+/* Compact headings - smaller sizes */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 18px;
+  border-bottom-width: 1px;
+  padding-bottom: 0.2em;
+  margin-top: 1em;
+}
+
+h2 {
+  font-size: 16px;
+  border-bottom-width: 1px;
+  padding-bottom: 0.2em;
+  margin-top: 0.9em;
+}
+
+h3 {
+  font-size: 14px;
+  margin-top: 0.8em;
+}
+
+h4 {
+  font-size: 12px;
+  margin-top: 0.7em;
+}
+
+h5 {
+  font-size: 11px;
+  margin-top: 0.6em;
+}
+
+h6 {
+  font-size: 10px;
+  margin-top: 0.6em;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Compact paragraphs */
+p {
+  margin-bottom: var(--spacing-paragraph);
+}
+
+/* Compact lists - tighter spacing */
+ul, ol {
+  padding-left: 1.5em;
+  margin-bottom: var(--spacing-paragraph);
+}
+
+li {
+  margin-bottom: var(--spacing-list);
+}
+
+/* Nested lists tighter */
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  margin-top: 0.1em;
+  margin-bottom: 0;
+}
+
+/* Compact code blocks - reduced padding */
+pre {
+  padding: var(--spacing-code-block);
+  margin-bottom: var(--spacing-paragraph);
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+code {
+  font-size: 10px;
+  padding: 0.1em 0.3em;
+  border-radius: 2px;
+}
+
+/* Compact blockquotes */
+blockquote {
+  margin: var(--spacing-paragraph) 0;
+  padding: 0.3em 0.6em;
+  border-left-width: 3px;
+  font-size: 0.95em;
+}
+
+/* Compact tables - dense styling */
+table {
+  font-size: 10px;
+  margin-bottom: var(--spacing-paragraph);
+}
+
+th, td {
+  padding: 0.25em 0.5em;
+}
+
+th {
+  font-weight: 600;
+}
+
+/* Compact horizontal rules */
+hr {
+  margin: var(--spacing-paragraph) 0;
+}
+
+/* Compact task lists */
+.task-list-item {
+  margin-left: -1.2em;
+}
+
+.task-list-item-checkbox {
+  width: 0.9em;
+  height: 0.9em;
+}
+
+/* Compact footnotes */
+.footnotes {
+  font-size: 9px;
+  margin-top: 1em;
+  padding-top: 0.5em;
+}
+
+.footnotes li {
+  margin-bottom: 0.2em;
+}
+
+/* Compact images */
+img {
+  margin: 0.5em 0;
+}
+
+/* Compact definition lists */
+dt {
+  margin-top: 0.3em;
+}
+
+dd {
+  margin-left: 1.5em;
+  margin-bottom: 0.3em;
+}
+
+/* Links - no extra decoration to save space */
+a {
+  text-underline-offset: 1px;
+}
+
+/* Markdown container */
+.markdown-body {
+  padding: 1em;
+}
+
+/* Print optimizations for compact theme */
+@media print {
+  @page {
+    margin: 1.5cm;
+  }
+
+  :root {
+    --font-size-base: 9pt;
+  }
+
+  body {
+    font-size: 9pt;
+  }
+
+  h1 {
+    font-size: 14pt;
+  }
+
+  h2 {
+    font-size: 12pt;
+  }
+
+  h3 {
+    font-size: 11pt;
+  }
+
+  h4 {
+    font-size: 10pt;
+  }
+
+  h5, h6 {
+    font-size: 9pt;
+  }
+
+  pre, code {
+    font-size: 8pt;
+  }
+
+  table {
+    font-size: 8pt;
+  }
+
+  .footnotes {
+    font-size: 7pt;
+  }
+
+  /* Tighter orphan/widow control for density */
+  p, li, blockquote {
+    orphans: 2;
+    widows: 2;
+  }
+
+  .markdown-body {
+    padding: 0;
+  }
+}

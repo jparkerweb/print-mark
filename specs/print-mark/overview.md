@@ -29,7 +29,7 @@ print-mark is a web application that converts Markdown to clean, printable HTML 
 
 - [x] Phase 1: Project Foundation - Initialize project structure, TypeScript, Vite, Fastify server with static file serving
 - [x] Phase 2: Markdown Engine - Implement markdown-to-HTML conversion with shared configuration for client and server
-- [ ] Phase 3: Theme System - Create print-optimized CSS themes and theme management service
+- [x] Phase 3: Theme System - Create print-optimized CSS themes and theme management service
 - [ ] Phase 4: Frontend Application - Build the complete user interface with editor, preview, and toolbar
 - [ ] Phase 5: PDF Generation - Implement server-side PDF export with Puppeteer
 - [ ] Phase 6: Docker & Deployment - Containerize application and create CI/CD pipeline
