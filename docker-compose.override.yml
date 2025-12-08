@@ -1,0 +1,13 @@
+# Development overrides - automatically merged with docker-compose.yml
+# Use: docker compose up (automatically uses both files)
+# Production only: docker compose -f docker-compose.yml up
+
+services:
+  print-mark:
+    environment:
+      - NODE_ENV=development
+    # Mount source for development (requires rebuild for changes)
+    # Uncomment below for volume mounting during development
+    # volumes:
+    #   - ./src:/app/src:ro
+    #   - ./dist:/app/dist

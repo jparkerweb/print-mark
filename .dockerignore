@@ -1,0 +1,34 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+
+# Version control
+.git
+.gitignore
+
+# Environment files
+.env
+.env.*
+
+# Documentation (except README)
+*.md
+!README.md
+
+# Specs and workflows
+specs/
+.github/
+
+# Editor configs
+.vscode/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc
+nul

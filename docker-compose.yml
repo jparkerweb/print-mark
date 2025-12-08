@@ -1,0 +1,25 @@
+services:
+  print-mark:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VERSION: ${VERSION:-1.0.0}
+    image: print-mark:${VERSION:-latest}
+    container_name: print-mark
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOST=0.0.0.0
+      - MAX_FILE_SIZE=${MAX_FILE_SIZE:-26214400}
+      - PDF_TIMEOUT=${PDF_TIMEOUT:-30000}
+      - PDF_CONCURRENT_LIMIT=${PDF_CONCURRENT_LIMIT:-3}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s

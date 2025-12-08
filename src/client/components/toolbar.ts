@@ -1,6 +1,31 @@
 import { setState, getState, subscribe } from '../state.js'
 import { createThemePicker } from './theme-picker.js'
 import { showToast } from './toast.js'
+import { exportPDF, downloadBlob } from '../services/api.js'
+import type { PDFOptions } from '../../shared/types.js'
+
+// PDF options stored in localStorage
+const PDF_OPTIONS_KEY = 'print-mark-pdf-options'
+
+function getPDFOptions(): PDFOptions {
+  try {
+    const stored = localStorage.getItem(PDF_OPTIONS_KEY)
+    if (stored) {
+      return JSON.parse(stored)
+    }
+  } catch {
+    // Ignore parse errors
+  }
+  return {
+    pageSize: 'A4',
+    margins: 'normal',
+    includePageNumbers: true,
+  }
+}
+
+function savePDFOptions(options: PDFOptions): void {
+  localStorage.setItem(PDF_OPTIONS_KEY, JSON.stringify(options))
+}
 
 const MAX_FILE_SIZE = 25 * 1024 * 1024 // 25MB
 const VALID_EXTENSIONS = ['.md', '.markdown', '.txt']
@@ -11,29 +36,45 @@ export function createToolbar(): HTMLElement {
 
   toolbar.innerHTML = `
     <div class="toolbar-left">
-      <a href="/" class="toolbar-logo">
-        <span class="toolbar-logo-icon">\u{1F4C4}</span>
+      <a href="/" class="toolbar-logo" aria-label="print-mark home">
+        <span class="toolbar-logo-icon" aria-hidden="true">\u{1F4C4}</span>
         <span>print-mark</span>
       </a>
-      <div class="toolbar-divider"></div>
+      <div class="toolbar-divider" aria-hidden="true"></div>
       <label class="upload-btn">
-        <span class="upload-btn-icon">\u{1F4C1}</span>
+        <span class="upload-btn-icon" aria-hidden="true">\u{1F4C1}</span>
         <span>Open File</span>
-        <input type="file" accept=".md,.markdown,.txt" class="visually-hidden" id="file-input" />
+        <input type="file" accept=".md,.markdown,.txt" class="visually-hidden" id="file-input" aria-label="Upload markdown file" />
       </label>
     </div>
-    <div class="toolbar-center" id="theme-picker-container"></div>
+    <div class="toolbar-center" id="theme-picker-container" role="group" aria-label="Theme selection"></div>
     <div class="toolbar-right">
-      <button type="button" class="toolbar-btn" id="copy-html-btn">
-        <span class="toolbar-btn-icon">\u{1F4CB}</span>
+      <button type="button" class="toolbar-btn" id="copy-html-btn" aria-label="Copy HTML to clipboard">
+        <span class="toolbar-btn-icon" aria-hidden="true">\u{1F4CB}</span>
         <span>Copy HTML</span>
       </button>
-      <button type="button" class="toolbar-btn" id="print-btn">
-        <span class="toolbar-btn-icon">\u{1F5A8}</span>
+      <button type="button" class="toolbar-btn" id="print-btn" aria-label="Print document">
+        <span class="toolbar-btn-icon" aria-hidden="true">\u{1F5A8}</span>
         <span>Print</span>
       </button>
-      <button type="button" class="toolbar-btn toolbar-btn-primary" id="export-pdf-btn">
-        <span class="toolbar-btn-icon">\u{1F4E5}</span>
+      <div class="pdf-options-group" role="group" aria-label="PDF export options">
+        <select id="pdf-page-size" class="pdf-option-select" title="Page size" aria-label="PDF page size">
+          <option value="A4">A4</option>
+          <option value="Letter">Letter</option>
+          <option value="Legal">Legal</option>
+        </select>
+        <select id="pdf-margins" class="pdf-option-select" title="Margins" aria-label="PDF margins">
+          <option value="normal">Normal</option>
+          <option value="narrow">Narrow</option>
+          <option value="wide">Wide</option>
+        </select>
+        <label class="pdf-option-checkbox" title="Include page numbers">
+          <input type="checkbox" id="pdf-page-numbers" checked aria-label="Include page numbers in PDF" />
+          <span aria-hidden="true">#</span>
+        </label>
+      </div>
+      <button type="button" class="toolbar-btn toolbar-btn-primary" id="export-pdf-btn" aria-label="Export to PDF">
+        <span class="toolbar-btn-icon" aria-hidden="true">\u{1F4E5}</span>
         <span>Export PDF</span>
       </button>
     </div>
@@ -45,11 +86,46 @@ export function createToolbar(): HTMLElement {
     themePickerContainer.appendChild(createThemePicker())
   }
 
+  // Initialize PDF options from localStorage
+  initializePDFOptions()
+
   // Set up event listeners
   setupFileUpload()
   setupActionButtons()
+  setupPDFOptionsListeners()
 
   return toolbar
+}
+
+function initializePDFOptions(): void {
+  const options = getPDFOptions()
+
+  const pageSizeSelect = document.getElementById('pdf-page-size') as HTMLSelectElement | null
+  const marginsSelect = document.getElementById('pdf-margins') as HTMLSelectElement | null
+  const pageNumbersCheckbox = document.getElementById('pdf-page-numbers') as HTMLInputElement | null
+
+  if (pageSizeSelect) pageSizeSelect.value = options.pageSize
+  if (marginsSelect) marginsSelect.value = options.margins
+  if (pageNumbersCheckbox) pageNumbersCheckbox.checked = options.includePageNumbers
+}
+
+function setupPDFOptionsListeners(): void {
+  const pageSizeSelect = document.getElementById('pdf-page-size') as HTMLSelectElement | null
+  const marginsSelect = document.getElementById('pdf-margins') as HTMLSelectElement | null
+  const pageNumbersCheckbox = document.getElementById('pdf-page-numbers') as HTMLInputElement | null
+
+  const saveOptions = () => {
+    const options: PDFOptions = {
+      pageSize: (pageSizeSelect?.value as PDFOptions['pageSize']) || 'A4',
+      margins: (marginsSelect?.value as PDFOptions['margins']) || 'normal',
+      includePageNumbers: pageNumbersCheckbox?.checked ?? true,
+    }
+    savePDFOptions(options)
+  }
+
+  pageSizeSelect?.addEventListener('change', saveOptions)
+  marginsSelect?.addEventListener('change', saveOptions)
+  pageNumbersCheckbox?.addEventListener('change', saveOptions)
 }
 
 function setupFileUpload(): void {
@@ -164,7 +240,7 @@ function handlePrint(): void {
   }, 250)
 }
 
-function handleExportPdf(): void {
+async function handleExportPdf(): Promise<void> {
   const btn = document.getElementById('export-pdf-btn')
 
   if (btn?.classList.contains('loading')) return
@@ -177,12 +253,17 @@ function handleExportPdf(): void {
 
   btn?.classList.add('loading')
 
-  // PDF export will be implemented in Phase 5
-  // For now, show a placeholder message
-  setTimeout(() => {
+  try {
+    const options = getPDFOptions()
+    const blob = await exportPDF(state.markdown, state.themeId, options)
+    downloadBlob(blob, 'document.pdf')
+    showToast('PDF exported successfully', 'success')
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Failed to export PDF'
+    showToast(message, 'error')
+  } finally {
     btn?.classList.remove('loading')
-    showToast('PDF export coming soon!', 'info')
-  }, 1000)
+  }
 }
 
 // Drag and Drop

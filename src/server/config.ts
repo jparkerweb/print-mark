@@ -10,6 +10,7 @@ const envSchema = z.object({
   MAX_FILE_SIZE: z.coerce.number().default(26214400),
   PDF_TIMEOUT: z.coerce.number().default(30000),
   PDF_CONCURRENT_LIMIT: z.coerce.number().default(3),
+  PUPPETEER_EXECUTABLE_PATH: z.string().optional(),
 })
 
 const parsed = envSchema.safeParse(process.env)

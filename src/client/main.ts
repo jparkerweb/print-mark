@@ -32,8 +32,21 @@ async function init(): Promise<void> {
 
     // Mark as loaded
     setState({ isLoading: false })
+
+    // Hide loading indicator with fade animation
+    hideLoadingIndicator()
   } catch (error) {
+    hideLoadingIndicator()
     handleError(error)
+  }
+}
+
+function hideLoadingIndicator(): void {
+  const loadingEl = document.getElementById('app-loading')
+  if (loadingEl) {
+    loadingEl.classList.add('hidden')
+    // Remove from DOM after transition
+    setTimeout(() => loadingEl.remove(), 300)
   }
 }
 

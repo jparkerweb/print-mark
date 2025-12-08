@@ -7,15 +7,54 @@
     <title>print-mark - Markdown to PDF</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>" />
     <link rel="stylesheet" href="styles/app.css" />
+    <style>
+      /* Critical CSS for loading state - prevents flash of unstyled content */
+      .app-loading {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #f8fafc;
+        z-index: 9999;
+        transition: opacity 0.3s ease;
+      }
+      .app-loading.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .app-loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid #e2e8f0;
+        border-top-color: #2563eb;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      .app-loading-text {
+        margin-top: 16px;
+        color: #64748b;
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: 14px;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
   </head>
   <body>
-    <header id="toolbar"></header>
-    <main id="main-content">
-      <div id="editor-panel" class="panel">
+    <div id="app-loading" class="app-loading">
+      <div class="app-loading-spinner"></div>
+      <div class="app-loading-text">Loading print-mark...</div>
+    </div>
+    <header id="toolbar" role="banner"></header>
+    <main id="main-content" role="main">
+      <div id="editor-panel" class="panel" role="region" aria-label="Markdown editor">
         <div id="editor-container"></div>
       </div>
-      <div id="divider" class="divider"></div>
-      <div id="preview-panel" class="panel">
+      <div id="divider" class="divider" role="separator" aria-orientation="vertical" tabindex="0" aria-label="Resize panels"></div>
+      <div id="preview-panel" class="panel" role="region" aria-label="Preview">
         <div id="preview-container"></div>
       </div>
     </main>
