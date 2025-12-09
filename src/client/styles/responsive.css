@@ -38,9 +38,21 @@
     display: none;
   }
 
-  .theme-picker-select {
-    min-width: 100px;
-    padding: 8px 28px 8px 10px;
+  .theme-picker-options {
+    padding: 3px;
+    gap: 2px;
+  }
+
+  .theme-picker-option {
+    padding: 6px 8px;
+  }
+
+  .theme-picker-name {
+    display: none;
+  }
+
+  .theme-picker-indicator {
+    font-size: 16px;
   }
 
   /* Stack panels vertically */
@@ -161,7 +173,7 @@
 
   .toolbar-btn,
   .upload-btn,
-  .theme-picker-select {
+  .theme-picker-options {
     border-width: 2px;
   }
 }

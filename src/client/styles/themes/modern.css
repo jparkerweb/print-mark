@@ -22,23 +22,27 @@
   --font-size-base: 15px;
   --line-height-base: 1.7;
 
-  /* Colors - Modern, softer palette */
-  --color-text: #1a1a1a;
-  --color-heading: #0f172a;
-  --color-link: #0891b2;
-  --color-link-visited: #7c3aed;
-  --color-code-bg: #f8fafc;
-  --color-code-border: #e2e8f0;
-  --color-blockquote-border: #0891b2;
-  --color-blockquote-bg: #f0fdfa;
-  --color-table-border: #e2e8f0;
-  --color-table-header-bg: #f8fafc;
-  --color-table-stripe: #fafbfc;
-  --color-hr: #e2e8f0;
+  /* Colors - Vibrant teal/cyan accent palette */
+  --color-text: #1e293b;
+  --color-heading: #0c4a6e;
+  --color-link: #0284c7;
+  --color-link-visited: #6366f1;
+  --color-code-bg: #f0f9ff;
+  --color-code-border: #bae6fd;
+  --color-blockquote-border: #0ea5e9;
+  --color-blockquote-bg: #e0f2fe;
+  --color-table-border: #bae6fd;
+  --color-table-header-bg: #e0f2fe;
+  --color-table-stripe: #f0f9ff;
+  --color-hr: #0ea5e9;
 
-  /* Accent colors */
-  --color-accent: #0891b2;
-  --color-accent-light: #cffafe;
+  /* Accent colors - More vibrant */
+  --color-accent: #0ea5e9;
+  --color-accent-dark: #0284c7;
+  --color-accent-light: #e0f2fe;
+
+  /* Background with subtle tint */
+  --color-page-bg: #f8fafc;
 
   /* Spacing */
   --spacing-paragraph: 1.25em;
@@ -46,6 +50,11 @@
   --spacing-heading-bottom: 0.6em;
   --spacing-list: 0.5em;
   --spacing-code-block: 1.25em;
+}
+
+/* Subtle background tint */
+body {
+  background-color: var(--color-page-bg);
 }
 
 /* Modern headings with subtle accents */
@@ -96,8 +105,8 @@ code {
   border-radius: 6px;
   padding: 0.25em 0.5em;
   background-color: var(--color-accent-light);
-  border: none;
-  color: #0e7490;
+  border: 1px solid var(--color-code-border);
+  color: var(--color-accent-dark);
   font-weight: 500;
 }
 

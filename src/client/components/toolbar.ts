@@ -235,8 +235,10 @@ function handlePrint(): void {
 
   printWindow.onload = () => {
     printWindow.focus()
+    printWindow.onafterprint = () => {
+      printWindow.close()
+    }
     printWindow.print()
-    printWindow.close()
   }
 }
 

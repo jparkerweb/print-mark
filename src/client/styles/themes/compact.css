@@ -19,22 +19,25 @@
   --font-mono: 'Cascadia Code', 'Consolas', 'Monaco', monospace;
 
   /* Font Sizes - Small */
-  --font-size-base: 11px;
-  --line-height-base: 1.4;
+  --font-size-base: 12px;
+  --line-height-base: 1.45;
 
-  /* Colors - High contrast for small text */
-  --color-text: #222222;
-  --color-heading: #000000;
-  --color-link: #0055aa;
-  --color-link-visited: #551a8b;
-  --color-code-bg: #f3f3f3;
-  --color-code-border: #ddd;
-  --color-blockquote-border: #999;
-  --color-blockquote-bg: transparent;
-  --color-table-border: #ccc;
-  --color-table-header-bg: #eee;
-  --color-table-stripe: #f8f8f8;
-  --color-hr: #ccc;
+  /* Colors - Cool gray palette for dense feel */
+  --color-text: #1f2937;
+  --color-heading: #111827;
+  --color-link: #4f46e5;
+  --color-link-visited: #6366f1;
+  --color-code-bg: #f3f4f6;
+  --color-code-border: #d1d5db;
+  --color-blockquote-border: #6b7280;
+  --color-blockquote-bg: #f9fafb;
+  --color-table-border: #d1d5db;
+  --color-table-header-bg: #e5e7eb;
+  --color-table-stripe: #f9fafb;
+  --color-hr: #9ca3af;
+
+  /* Background - Subtle cool gray */
+  --color-page-bg: #f9fafb;
 
   /* Spacing - Minimal */
   --spacing-paragraph: 0.6em;
@@ -42,6 +45,11 @@
   --spacing-heading-bottom: 0.3em;
   --spacing-list: 0.2em;
   --spacing-code-block: 0.6em;
+}
+
+/* Cool gray background for dense feel */
+body {
+  background-color: var(--color-page-bg);
 }
 
 /* Compact headings - smaller sizes */

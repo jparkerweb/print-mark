@@ -22,19 +22,22 @@
   --font-size-base: 16px;
   --line-height-base: 1.6;
 
-  /* Colors */
-  --color-text: #333333;
-  --color-heading: #1a1a1a;
-  --color-link: #0066cc;
-  --color-link-visited: #551a8b;
+  /* Colors - Pure, clean, neutral palette */
+  --color-text: #24292f;
+  --color-heading: #1b1f23;
+  --color-link: #0969da;
+  --color-link-visited: #6e40c9;
   --color-code-bg: #f6f8fa;
-  --color-code-border: #e1e4e8;
-  --color-blockquote-border: #dfe2e5;
+  --color-code-border: #d0d7de;
+  --color-blockquote-border: #d0d7de;
   --color-blockquote-bg: transparent;
-  --color-table-border: #dfe2e5;
+  --color-table-border: #d0d7de;
   --color-table-header-bg: #f6f8fa;
-  --color-table-stripe: #f9fafb;
-  --color-hr: #e1e4e8;
+  --color-table-stripe: #f6f8fa;
+  --color-hr: #d0d7de;
+
+  /* Background - Pure white */
+  --color-page-bg: #ffffff;
 
   /* Spacing */
   --spacing-paragraph: 1em;
@@ -42,6 +45,11 @@
   --spacing-heading-bottom: 0.5em;
   --spacing-list: 0.4em;
   --spacing-code-block: 1em;
+}
+
+/* Pure white background */
+body {
+  background-color: var(--color-page-bg);
 }
 
 /* Clean, minimal heading styles */
