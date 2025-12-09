@@ -19,6 +19,7 @@ RUN npm ci --only=production --ignore-scripts
 # Stage 3: Build - Install all deps and build application
 # =============================================================================
 FROM base AS build
+ENV NODE_ENV=development
 RUN npm ci
 COPY . .
 RUN npm run build
