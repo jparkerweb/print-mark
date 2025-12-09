@@ -17,7 +17,7 @@ Convert Markdown to clean, printable HTML with PDF export.
 ### Docker (Recommended)
 
 ```bash
-docker run -p 3000:3000 ghcr.io/YOUR_USERNAME/print-mark:latest
+docker run -p 3000:3000 ghcr.io/jparkerweb/print-mark:latest
 ```
 
 Then open http://localhost:3000 in your browser.
@@ -27,7 +27,7 @@ Then open http://localhost:3000 in your browser.
 ```yaml
 services:
   print-mark:
-    image: ghcr.io/YOUR_USERNAME/print-mark:latest
+    image: ghcr.io/jparkerweb/print-mark:latest
     ports:
       - "3000:3000"
     environment:
@@ -48,7 +48,7 @@ Prerequisites:
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/print-mark.git
+git clone https://github.com/jparkerweb/print-mark.git
 cd print-mark
 
 # Install dependencies
@@ -269,7 +269,7 @@ docker run -d \
 ```yaml
 services:
   print-mark:
-    image: ghcr.io/YOUR_USERNAME/print-mark:latest
+    image: ghcr.io/jparkerweb/print-mark:latest
     ports:
       - "3000:3000"
     environment:
