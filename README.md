@@ -1,6 +1,6 @@
-# print-mark
+# 🖨️ print-mark
 
-Convert Markdown to clean, printable HTML with PDF export.
+Convert Markdown to clean, printable HTML with PDF export
 
 ## Features
 
