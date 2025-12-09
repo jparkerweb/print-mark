@@ -60,7 +60,7 @@ export function createToolbar(): HTMLElement {
       <div class="pdf-options-group" role="group" aria-label="PDF export options">
         <select id="pdf-page-size" class="pdf-option-select" title="Page size" aria-label="PDF page size">
           <option value="A4">A4</option>
-          <option value="Letter">Letter</option>
+          <option value="Letter" selected>Letter</option>
           <option value="Legal">Legal</option>
         </select>
         <select id="pdf-margins" class="pdf-option-select" title="Margins" aria-label="PDF margins">
@@ -232,12 +232,12 @@ function handlePrint(): void {
   `)
 
   printWindow.document.close()
-  printWindow.focus()
 
-  setTimeout(() => {
+  printWindow.onload = () => {
+    printWindow.focus()
     printWindow.print()
     printWindow.close()
-  }, 250)
+  }
 }
 
 async function handleExportPdf(): Promise<void> {
