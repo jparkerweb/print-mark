@@ -2,6 +2,8 @@
 
 Convert Markdown to clean, printable HTML with PDF export
 
+<img src=".readme/print-mark.jpg" height="250">
+
 ## Features
 
 - **Live Preview** - See formatted output as you type with real-time rendering
