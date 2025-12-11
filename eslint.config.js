@@ -18,6 +18,7 @@ export default [
         process: 'readonly',
         document: 'readonly',
         window: 'readonly',
+        NodeJS: 'readonly',
       },
     },
     plugins: {

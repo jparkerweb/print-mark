@@ -8,12 +8,16 @@ FROM node:22-alpine AS base
 WORKDIR /app
 COPY package.json package-lock.json ./
 ENV NODE_ENV=production
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 
 # =============================================================================
 # Stage 2: Dependencies - Install production dependencies only
 # =============================================================================
 FROM base AS deps
+RUN apk add --no-cache curl
 RUN npm ci --only=production --ignore-scripts
+RUN curl -sf https://gobinaries.com/tj/node-prune | sh && \
+    node-prune
 
 # =============================================================================
 # Stage 3: Build - Install all deps and build application
@@ -81,7 +85,7 @@ EXPOSE 3000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD wget -q --spider http://localhost:3000/api/health || exit 1
+    CMD wget -q --spider http://127.0.0.1:3000/api/health || exit 1
 
 # Start the application
 CMD ["node", "dist/server/index.js"]

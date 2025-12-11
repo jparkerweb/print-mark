@@ -1,6 +1,6 @@
 {
   "name": "print-mark",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Convert Markdown to clean, printable HTML with PDF export",
   "type": "module",
   "engines": {
@@ -14,7 +14,16 @@
     "build": "tsc -p tsconfig.server.json && vite build",
     "start": "node dist/server/index.js",
     "lint": "eslint src/",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:slow": "vitest run --mode slow tests/slow",
+    "test:all": "vitest run --mode all tests",
+    "prepare": "husky",
+    "lint-staged": "lint-staged",
+    "docker:build": "docker build -t print-mark .",
+    "docker:run": "docker run -p 3000:3000 --rm --init print-mark"
   },
   "keywords": [
     "markdown",
@@ -31,8 +40,8 @@
     "@codemirror/search": "^6.5.11",
     "@codemirror/state": "^6.5.2",
     "@codemirror/theme-one-dark": "^6.1.3",
-    "@codemirror/view": "^6.39.0",
-    "@fastify/cors": "^11.1.0",
+    "@codemirror/view": "^6.39.3",
+    "@fastify/cors": "^11.2.0",
     "@fastify/helmet": "^13.0.2",
     "@fastify/multipart": "^9.3.0",
     "@fastify/static": "^8.3.0",
@@ -50,6 +59,12 @@
     "shiki": "^3.19.0",
     "zod": "^4.1.13"
   },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "vitest related --run"
+    ]
+  },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/dompurify": "^3.0.5",
@@ -57,14 +72,19 @@
     "@types/markdown-it": "^14.1.2",
     "@types/markdown-it-anchor": "^4.0.4",
     "@types/markdown-it-footnote": "^3.0.4",
-    "@types/node": "^24.10.2",
+    "@types/node": "^24.10.3",
     "@typescript-eslint/eslint-plugin": "^8.49.0",
     "@typescript-eslint/parser": "^8.49.0",
+    "@vitest/coverage-v8": "^4.0.15",
     "concurrently": "^9.2.1",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
+    "happy-dom": "^20.0.11",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
     "typescript": "^5.9.3",
-    "vite": "^7.2.7"
+    "vite": "^7.2.7",
+    "vitest": "^4.0.15"
   }
 }

@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.2] - 2025-12-11
+
+### ✨ Added
+
+- **Testing Infrastructure**
+  - Vitest test framework with 94 tests (77 unit, 17 integration)
+  - Code coverage with v8 provider and HTML reports
+  - Husky pre-commit hooks for automated linting and testing
+  - lint-staged for running checks on staged TypeScript files only
+  - Test helpers for server factory and Puppeteer mocking
+  - Slow test suite for real Puppeteer PDF generation
+
+### 🔧 Changed
+
+- Refactored server to use `createApp()` factory function for testability
+- Added test scripts: `test`, `test:watch`, `test:coverage`, `test:slow`, `test:all`
+
 ## [1.0.1] - 2025-12-08
 
 ### 🐛 Fixed
@@ -68,6 +85,3 @@ All notable changes to this project will be documented in this file.
 - HTML sanitization prevents XSS attacks in rendered output
 - All user input validated before processing
 - No data persistence - fully stateless design
-
-[1.0.1]: https://github.com/YOUR_USERNAME/print-mark/releases/tag/v1.0.1
-[1.0.0]: https://github.com/YOUR_USERNAME/print-mark/releases/tag/v1.0.0

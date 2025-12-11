@@ -69,6 +69,42 @@ Development mode with hot reload:
 npm run dev
 ```
 
+## Testing
+
+### Running Tests
+
+```bash
+# Run all tests once
+npm run test
+
+# Run tests in watch mode (re-runs on file changes)
+npm run test:watch
+
+# Run tests with coverage report
+npm run test:coverage
+
+# Run slow Puppeteer tests (real PDF generation)
+npm run test:slow
+
+# Run all tests including slow tests
+npm run test:all
+```
+
+### Pre-commit Hooks
+
+This project uses Husky and lint-staged to enforce code quality on every commit. When you commit:
+
+1. **ESLint** runs on staged TypeScript files and auto-fixes issues where possible
+2. **Vitest** runs tests related to your changed files
+
+If either linting or tests fail, the commit is blocked until issues are resolved.
+
+To bypass hooks in emergencies (use sparingly):
+
+```bash
+git commit --no-verify -m "emergency commit"
+```
+
 ## Configuration
 
 ### Environment Variables
