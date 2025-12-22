@@ -1,0 +1,160 @@
+/* Minimalist Theme
+ * Ultra-clean design with maximum whitespace
+ * For content that speaks for itself
+ */
+
+@import './_base.css';
+
+/* Theme Metadata */
+:root {
+  --theme-id: 'minimalist';
+  --theme-name: 'Minimalist';
+}
+
+/* Minimalist Theme Overrides */
+:root {
+  /* Typography */
+  --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-heading: var(--font-body);
+  --font-mono: 'SF Mono', 'Monaco', 'Consolas', monospace;
+
+  /* Font Sizes */
+  --font-size-base: 16px;
+  --line-height-base: 1.8;
+
+  /* Colors - Minimal, light grays */
+  --color-text: #374151;
+  --color-heading: #111827;
+  --color-link: #374151;
+  --color-link-visited: #6b7280;
+  --color-code-bg: #fafafa;
+  --color-code-border: #e5e7eb;
+  --color-blockquote-border: #d1d5db;
+  --color-blockquote-bg: transparent;
+  --color-table-border: #e5e7eb;
+  --color-table-header-bg: #fafafa;
+  --color-table-stripe: #fafafa;
+  --color-hr: #e5e7eb;
+
+  /* Background */
+  --color-page-bg: #ffffff;
+
+  /* Spacing - Generous */
+  --spacing-paragraph: 1.5em;
+  --spacing-heading: 2.5em;
+  --spacing-heading-bottom: 0.75em;
+  --spacing-list: 0.6em;
+  --spacing-code-block: 1.5em;
+}
+
+body {
+  background-color: var(--color-page-bg);
+}
+
+/* Light-weight headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 2.5em;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+h2 {
+  font-size: 1.75em;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+h3 {
+  font-size: 1.35em;
+}
+
+h4 {
+  font-size: 1.1em;
+  font-weight: 400;
+}
+
+/* Minimal code styling */
+pre {
+  border: none;
+  border-radius: 0;
+  padding: var(--spacing-code-block);
+}
+
+code {
+  border: none;
+  border-radius: 2px;
+}
+
+/* Subtle blockquotes */
+blockquote {
+  border-left: 2px solid var(--color-blockquote-border);
+  padding-left: 1.5em;
+  font-style: normal;
+  color: #6b7280;
+}
+
+/* Clean tables */
+table {
+  border: none;
+}
+
+th, td {
+  border: none;
+  border-bottom: 1px solid var(--color-table-border);
+}
+
+th {
+  background: transparent;
+  font-weight: 500;
+}
+
+tbody tr:nth-child(even) {
+  background: transparent;
+}
+
+/* Minimal horizontal rule */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--color-hr);
+  margin: 3em 0;
+}
+
+/* Links - understated */
+a {
+  text-decoration: none;
+  border-bottom: 1px solid #d1d5db;
+}
+
+a:hover {
+  border-bottom-color: #374151;
+}
+
+/* Print styles */
+@media print {
+  :root {
+    --font-size-base: 11pt;
+    --color-text: #000;
+    --color-heading: #000;
+  }
+
+  a {
+    border-bottom: none;
+  }
+}
+
+/* Preview mode */
+.preview-mode {
+  font-size: 11pt;
+  --color-text: #000;
+  --color-heading: #000;
+}
+
+.preview-mode a {
+  border-bottom: none;
+}

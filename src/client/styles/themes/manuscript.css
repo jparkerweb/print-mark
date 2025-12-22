@@ -1,0 +1,157 @@
+/* Manuscript Theme
+ * Traditional book styling with classic serif typography
+ * Perfect for literary content, essays, and narrative documents
+ */
+
+@import './_base.css';
+
+/* Theme Metadata */
+:root {
+  --theme-id: 'manuscript';
+  --theme-name: 'Manuscript';
+}
+
+/* Manuscript Theme Overrides */
+:root {
+  /* Typography */
+  --font-body: 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+  --font-heading: var(--font-body);
+  --font-mono: 'Courier New', Courier, monospace;
+
+  /* Font Sizes */
+  --font-size-base: 17px;
+  --line-height-base: 1.85;
+
+  /* Colors - Warm, classic palette */
+  --color-text: #3d3226;
+  --color-heading: #2d2419;
+  --color-link: #6b4423;
+  --color-link-visited: #4a3728;
+  --color-code-bg: #faf7f2;
+  --color-code-border: #e8e0d4;
+  --color-blockquote-border: #a08060;
+  --color-blockquote-bg: #fcfaf6;
+  --color-table-border: #d4c8b8;
+  --color-table-header-bg: #f5f0e8;
+  --color-table-stripe: #fdfbf8;
+  --color-hr: #c4b8a0;
+
+  /* Background - Cream/parchment */
+  --color-page-bg: #fffcf5;
+
+  /* Spacing */
+  --spacing-paragraph: 0;
+  --spacing-heading: 2em;
+  --spacing-heading-bottom: 0.6em;
+}
+
+body {
+  background-color: var(--color-page-bg);
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Classic book-style headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  text-align: left;
+}
+
+h1 {
+  font-size: 1.8em;
+  text-align: center;
+  border-bottom: none;
+  margin-bottom: 1.5em;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+h2 {
+  font-size: 1.4em;
+  border-bottom: none;
+  margin-top: 2.5em;
+  font-style: italic;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+/* Paragraph indentation (book style) */
+p {
+  margin-bottom: 0;
+  text-indent: 1.5em;
+}
+
+p:first-of-type,
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p,
+blockquote + p,
+pre + p,
+ul + p,
+ol + p,
+table + p {
+  text-indent: 0;
+}
+
+/* Elegant blockquotes */
+blockquote {
+  font-style: italic;
+  border-left-width: 2px;
+  margin: 1.5em 2em;
+  padding-left: 1.5em;
+}
+
+/* Minimal code styling */
+pre {
+  border-radius: 0;
+  border: 1px solid var(--color-code-border);
+}
+
+code {
+  border-radius: 0;
+}
+
+/* Links - subtle */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Print styles */
+@media print {
+  body {
+    font-size: 12pt;
+    background: white;
+  }
+
+  h1 {
+    margin-top: 0;
+  }
+
+  a {
+    color: #000;
+  }
+}
+
+/* Preview mode */
+.preview-mode {
+  font-size: 12pt;
+  background: white !important;
+}
+
+.preview-mode h1 {
+  margin-top: 0;
+}
+
+.preview-mode a {
+  color: #000;
+}

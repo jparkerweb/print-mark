@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2025-12-22
+
+### ✨ Added
+
+- **B5 Paper Size** - ISO B5 (176mm × 250mm) paper size option for PDF export
+- **5 New Themes** - Executive, Manuscript, Technical, Minimalist, and Newsletter print-optimized themes
+- **Preview Mode Styling** - Live preview now accurately represents printed/PDF output with matching styles
+
+### 🔧 Changed
+
+- Theme selection UI converted from button grid to native dropdown for better scalability
+- All themes now include `.preview-mode` CSS rules for accurate live preview
+
 ## [1.0.2] - 2025-12-11
 
 ### ✨ Added

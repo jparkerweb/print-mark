@@ -260,3 +260,49 @@ a {
     padding: 0;
   }
 }
+
+/* Preview mode - mirrors print styles */
+.preview-mode {
+  font-size: 9pt;
+}
+
+.preview-mode h1 {
+  font-size: 14pt;
+}
+
+.preview-mode h2 {
+  font-size: 12pt;
+}
+
+.preview-mode h3 {
+  font-size: 11pt;
+}
+
+.preview-mode h4 {
+  font-size: 10pt;
+}
+
+.preview-mode h5,
+.preview-mode h6 {
+  font-size: 9pt;
+}
+
+.preview-mode pre,
+.preview-mode code {
+  font-size: 8pt;
+}
+
+.preview-mode table {
+  font-size: 8pt;
+}
+
+.preview-mode .footnotes {
+  font-size: 7pt;
+}
+
+.preview-mode p,
+.preview-mode li,
+.preview-mode blockquote {
+  orphans: 2;
+  widows: 2;
+}

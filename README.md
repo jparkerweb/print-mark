@@ -7,7 +7,7 @@ Convert Markdown to clean, printable HTML with PDF export
 ## Features
 
 - **Live Preview** - See formatted output as you type with real-time rendering
-- **Multiple Themes** - Choose from 4 print-optimized themes (Clean, Academic, Modern, Compact)
+- **Multiple Themes** - Choose from 9 print-optimized themes with live preview styling
 - **PDF Export** - Generate professional PDFs with customizable page sizes, margins, and page numbers
 - **Syntax Highlighting** - Beautiful code highlighting powered by Shiki
 - **File Upload** - Drag and drop or upload `.md`, `.markdown`, or `.txt` files
@@ -155,26 +155,15 @@ Returns available themes with metadata.
 ```json
 {
   "themes": [
-    {
-      "id": "clean",
-      "name": "Clean",
-      "description": "Minimal, professional styling"
-    },
-    {
-      "id": "academic",
-      "name": "Academic",
-      "description": "Scholarly formatting with serifs"
-    },
-    {
-      "id": "modern",
-      "name": "Modern",
-      "description": "Contemporary sans-serif design"
-    },
-    {
-      "id": "compact",
-      "name": "Compact",
-      "description": "Space-efficient for dense content"
-    }
+    { "id": "clean", "name": "Clean", "description": "Minimal, professional styling" },
+    { "id": "academic", "name": "Academic", "description": "Scholarly formatting with serifs" },
+    { "id": "modern", "name": "Modern", "description": "Contemporary sans-serif design" },
+    { "id": "compact", "name": "Compact", "description": "Space-efficient for dense content" },
+    { "id": "executive", "name": "Executive", "description": "Bold, corporate look" },
+    { "id": "manuscript", "name": "Manuscript", "description": "Classic serif book style" },
+    { "id": "technical", "name": "Technical", "description": "Code-optimized high contrast" },
+    { "id": "minimalist", "name": "Minimalist", "description": "Ultra-clean with max whitespace" },
+    { "id": "newsletter", "name": "Newsletter", "description": "Friendly with decorative elements" }
   ]
 }
 ```
@@ -211,8 +200,8 @@ Converts Markdown to PDF and returns the file.
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `markdown` | string | Yes | Markdown content to convert |
-| `theme` | string | Yes | Theme ID (`clean`, `academic`, `modern`, `compact`) |
-| `options.pageSize` | string | No | Page size: `A4`, `Letter`, `Legal` (default: `A4`) |
+| `theme` | string | Yes | Theme ID (`clean`, `academic`, `modern`, `compact`, `executive`, `manuscript`, `technical`, `minimalist`, `newsletter`) |
+| `options.pageSize` | string | No | Page size: `A4`, `Letter`, `Legal`, `B5` (default: `A4`) |
 | `options.margins` | string | No | Margins: `normal`, `narrow`, `wide` (default: `normal`) |
 | `options.includePageNumbers` | boolean | No | Show page numbers (default: `true`) |
 
@@ -355,7 +344,7 @@ server {
 
 ## Themes
 
-print-mark includes 4 print-optimized themes:
+print-mark includes 9 print-optimized themes:
 
 | Theme | Description |
 |-------|-------------|
@@ -363,6 +352,11 @@ print-mark includes 4 print-optimized themes:
 | **Academic** | Scholarly formatting with serif fonts, ideal for papers |
 | **Modern** | Contemporary sans-serif design with subtle accents |
 | **Compact** | Space-efficient layout for dense technical content |
+| **Executive** | Bold, corporate look with strong visual hierarchy |
+| **Manuscript** | Traditional book style with classic serif typography |
+| **Technical** | Optimized for code-heavy documentation with high contrast |
+| **Minimalist** | Ultra-clean design with maximum whitespace |
+| **Newsletter** | Friendly layout with subtle decorative elements |
 
 All themes are optimized for:
 - Print media with proper page breaks

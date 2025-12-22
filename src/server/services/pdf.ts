@@ -16,10 +16,11 @@ const MARGIN_PRESETS: Record<PDFOptions['margins'], string> = {
 /**
  * Page size configurations
  */
-const PAGE_SIZES: Record<PDFOptions['pageSize'], { width: number }> = {
+const PAGE_SIZES: Record<PDFOptions['pageSize'], { width: number; height?: number }> = {
   A4: { width: 794 }, // 210mm at 96dpi
   Letter: { width: 816 }, // 8.5in at 96dpi
   Legal: { width: 816 }, // 8.5in at 96dpi
+  B5: { width: 672, height: 945 }, // 176mm x 250mm at 96dpi (B5 needs explicit dimensions)
 }
 
 /**
@@ -248,8 +249,8 @@ export class PDFService {
 
       // Generate PDF options
       const margin = MARGIN_PRESETS[request.options.margins]
+      const pageConfig = PAGE_SIZES[request.options.pageSize]
       const pdfOptions: Parameters<Page['pdf']>[0] = {
-        format: request.options.pageSize,
         printBackground: true,
         margin: {
           top: margin,
@@ -257,6 +258,14 @@ export class PDFService {
           bottom: request.options.includePageNumbers ? '25mm' : margin,
           left: margin,
         },
+      }
+
+      // Use explicit dimensions for B5 (not in Puppeteer's PaperFormat), format name for others
+      if (pageConfig.height) {
+        pdfOptions.width = `${pageConfig.width}px`
+        pdfOptions.height = `${pageConfig.height}px`
+      } else {
+        pdfOptions.format = request.options.pageSize as 'A4' | 'Letter' | 'Legal'
       }
 
       // Add page numbers if enabled

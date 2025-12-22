@@ -101,3 +101,15 @@ th {
     border-bottom-color: #ccc;
   }
 }
+
+/* Preview mode - mirrors print styles */
+.preview-mode {
+  --color-text: #000;
+  --color-heading: #000;
+  font-size: 11pt;
+}
+
+.preview-mode h1,
+.preview-mode h2 {
+  border-bottom-color: #ccc;
+}

@@ -283,12 +283,14 @@ table {
 .task-list-item {
   list-style-type: none;
   margin-left: -1.5em;
+  padding-left: 1.5em;
   position: relative;
 }
 
 .task-list-item-checkbox {
   position: absolute;
-  left: -0.2em;
+  left: 0;
+  top: 0.25em;
   margin-right: 0.5em;
   width: 1em;
   height: 1em;
@@ -499,4 +501,74 @@ kbd {
     padding: 0;
     margin: 0;
   }
+}
+
+/* Preview Mode Styles
+ * These rules mirror @media print styles so the preview
+ * accurately represents the printed/PDF output
+ */
+.preview-mode {
+  background: white !important;
+  color: black !important;
+}
+
+.preview-mode,
+.preview-mode * {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Typography in preview mode */
+.preview-mode {
+  font-size: 12pt;
+  line-height: 1.6;
+}
+
+/* Links in preview mode */
+.preview-mode a {
+  color: black !important;
+  text-decoration: underline;
+}
+
+/* Code blocks in preview mode */
+.preview-mode pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  background-color: #f5f5f5 !important;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.preview-mode code {
+  background-color: #f5f5f5 !important;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Tables in preview mode */
+.preview-mode table {
+  display: table;
+}
+
+.preview-mode th {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.preview-mode tbody tr:nth-child(even) {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Task list checkboxes in preview mode */
+.preview-mode .task-list-item-checkbox {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Remove decorative elements that don't print well */
+.preview-mode img {
+  max-width: 100%;
+  height: auto;
 }

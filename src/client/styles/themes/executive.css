@@ -1,0 +1,123 @@
+/* Executive Theme
+ * Bold, corporate styling with strong visual hierarchy
+ * Ideal for business documents, reports, and presentations
+ */
+
+@import './_base.css';
+
+/* Theme Metadata */
+:root {
+  --theme-id: 'executive';
+  --theme-name: 'Executive';
+}
+
+/* Executive Theme Overrides */
+:root {
+  /* Typography */
+  --font-body: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --font-heading: var(--font-body);
+  --font-mono: 'Cascadia Code', 'Consolas', 'Monaco', monospace;
+
+  /* Font Sizes */
+  --font-size-base: 15px;
+  --line-height-base: 1.65;
+
+  /* Colors - Navy corporate palette */
+  --color-text: #1e293b;
+  --color-heading: #1a365d;
+  --color-link: #1a365d;
+  --color-link-visited: #553c9a;
+  --color-code-bg: #f1f5f9;
+  --color-code-border: #cbd5e1;
+  --color-blockquote-border: #1a365d;
+  --color-blockquote-bg: #f8fafc;
+  --color-table-border: #cbd5e1;
+  --color-table-header-bg: #1a365d;
+  --color-table-stripe: #f8fafc;
+  --color-hr: #1a365d;
+
+  /* Background */
+  --color-page-bg: #ffffff;
+
+  /* Spacing */
+  --spacing-paragraph: 1.1em;
+  --spacing-heading: 1.6em;
+  --spacing-heading-bottom: 0.5em;
+}
+
+body {
+  background-color: var(--color-page-bg);
+}
+
+/* Bold, prominent headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+h1 {
+  font-size: 2em;
+  border-bottom: 3px solid var(--color-heading);
+  padding-bottom: 0.4em;
+}
+
+h2 {
+  font-size: 1.5em;
+  border-bottom: 2px solid var(--color-heading);
+  padding-bottom: 0.3em;
+}
+
+h3 {
+  font-size: 1.25em;
+  border-bottom: 1px solid #cbd5e1;
+  padding-bottom: 0.2em;
+}
+
+/* Executive tables - dark header */
+th {
+  background-color: var(--color-table-header-bg);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Strong blockquote styling */
+blockquote {
+  border-left: 5px solid var(--color-blockquote-border);
+  background: var(--color-blockquote-bg);
+  padding: 1em 1.25em;
+}
+
+/* Print styles */
+@media print {
+  :root {
+    --color-heading: #000;
+    --font-size-base: 11pt;
+  }
+
+  h1, h2 {
+    border-bottom-color: #333;
+  }
+
+  th {
+    background-color: #333;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Preview mode */
+.preview-mode {
+  --color-heading: #000;
+  font-size: 11pt;
+}
+
+.preview-mode h1,
+.preview-mode h2 {
+  border-bottom-color: #333;
+}
+
+.preview-mode th {
+  background-color: #333;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}

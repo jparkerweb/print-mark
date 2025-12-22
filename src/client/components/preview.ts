@@ -22,7 +22,7 @@ export function createPreview(container: HTMLElement): void {
 
   // Create content wrapper
   contentElement = document.createElement('div')
-  contentElement.className = 'preview-content'
+  contentElement.className = 'preview-content preview-mode'
   shadowRoot.appendChild(contentElement)
 
   // Initial render

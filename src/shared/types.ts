@@ -1,4 +1,4 @@
-export type ThemeId = 'clean' | 'academic' | 'modern' | 'compact'
+export type ThemeId = 'clean' | 'academic' | 'modern' | 'compact' | 'executive' | 'manuscript' | 'technical' | 'minimalist' | 'newsletter'
 
 export interface Theme {
   id: string
@@ -7,7 +7,7 @@ export interface Theme {
 }
 
 export interface PDFOptions {
-  pageSize: 'A4' | 'Letter' | 'Legal'
+  pageSize: 'A4' | 'Letter' | 'Legal' | 'B5'
   margins: 'normal' | 'narrow' | 'wide'
   includePageNumbers: boolean
 }

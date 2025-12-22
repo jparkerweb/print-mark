@@ -249,3 +249,36 @@ a:hover {
     border-top-color: #000;
   }
 }
+
+/* Preview mode - mirrors print styles */
+.preview-mode {
+  font-size: 12pt;
+}
+
+.preview-mode a {
+  color: #000 !important;
+  text-decoration: none;
+}
+
+/* Show URLs after links in preview (like print) */
+.preview-mode a[href^="http"]::after {
+  content: " (" attr(href) ")";
+  font-size: 0.8em;
+  color: #666;
+}
+
+.preview-mode a[href^="#"]::after {
+  content: none;
+}
+
+.preview-mode h1 {
+  margin-top: 0;
+}
+
+.preview-mode blockquote {
+  border-left-color: #000;
+}
+
+.preview-mode .footnotes {
+  border-top-color: #000;
+}

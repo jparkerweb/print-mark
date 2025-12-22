@@ -11,9 +11,9 @@ const pdfRequestSchema = z.object({
     .string()
     .min(1, 'Markdown content is required')
     .max(config.MAX_FILE_SIZE, `Content exceeds maximum size of ${config.MAX_FILE_SIZE} bytes`),
-  theme: z.enum(['clean', 'academic', 'modern', 'compact']),
+  theme: z.enum(['clean', 'academic', 'modern', 'compact', 'executive', 'manuscript', 'technical', 'minimalist', 'newsletter']),
   options: z.object({
-    pageSize: z.enum(['A4', 'Letter', 'Legal']).default('A4'),
+    pageSize: z.enum(['A4', 'Letter', 'Legal', 'B5']).default('A4'),
     margins: z.enum(['normal', 'narrow', 'wide']).default('normal'),
     includePageNumbers: z.boolean().default(true),
   }).optional().default({

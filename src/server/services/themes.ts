@@ -30,12 +30,40 @@ const THEMES: Theme[] = [
     name: 'Compact',
     description: 'Optimized for maximum content per page. Small fonts and tight spacing.',
   },
+  {
+    id: 'executive',
+    name: 'Executive',
+    description: 'Bold, corporate look with strong visual hierarchy. Ideal for business documents.',
+  },
+  {
+    id: 'manuscript',
+    name: 'Manuscript',
+    description: 'Traditional book style with classic serif typography. Perfect for literary content.',
+  },
+  {
+    id: 'technical',
+    name: 'Technical',
+    description: 'Optimized for code-heavy technical documentation. High contrast and mono-friendly.',
+  },
+  {
+    id: 'minimalist',
+    name: 'Minimalist',
+    description: 'Ultra-clean design with maximum whitespace. For content that speaks for itself.',
+  },
+  {
+    id: 'newsletter',
+    name: 'Newsletter',
+    description: 'Friendly layout with subtle decorative elements. Great for casual communications.',
+  },
 ]
 
 /**
  * Valid theme IDs for runtime validation
  */
-const VALID_THEME_IDS: Set<ThemeId> = new Set(['clean', 'academic', 'modern', 'compact'])
+const VALID_THEME_IDS: Set<ThemeId> = new Set([
+  'clean', 'academic', 'modern', 'compact',
+  'executive', 'manuscript', 'technical', 'minimalist', 'newsletter'
+])
 
 /**
  * ThemeService provides access to theme metadata and CSS content

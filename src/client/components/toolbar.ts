@@ -62,6 +62,7 @@ export function createToolbar(): HTMLElement {
           <option value="A4">A4</option>
           <option value="Letter" selected>Letter</option>
           <option value="Legal">Legal</option>
+          <option value="B5">B5</option>
         </select>
         <select id="pdf-margins" class="pdf-option-select" title="Margins" aria-label="PDF margins">
           <option value="normal">Normal</option>

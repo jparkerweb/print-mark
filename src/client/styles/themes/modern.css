@@ -263,3 +263,50 @@ li::marker {
     background: #ccc;
   }
 }
+
+/* Preview mode - mirrors print styles */
+.preview-mode {
+  --color-text: #000;
+  --color-heading: #000;
+  font-size: 11pt;
+}
+
+.preview-mode h1 {
+  border-bottom-color: #000;
+}
+
+.preview-mode h2 {
+  color: #333;
+}
+
+.preview-mode pre {
+  border-left-color: #666;
+  box-shadow: none;
+}
+
+.preview-mode code {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.preview-mode blockquote {
+  border-left-color: #666;
+  background-color: #f8f8f8;
+}
+
+.preview-mode a {
+  color: #000;
+  border-bottom: none;
+}
+
+.preview-mode table {
+  box-shadow: none;
+}
+
+.preview-mode img {
+  box-shadow: none;
+}
+
+.preview-mode hr {
+  background: #ccc;
+}
