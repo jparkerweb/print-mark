@@ -6,3 +6,4 @@ dist/
 *.local
 specs/
 specs--completed/
+AGENTS.md
