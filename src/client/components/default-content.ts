@@ -25,9 +25,9 @@ Inline \`code\` looks like this, perfect for mentioning \`function names\` or \`
 
 ## Links
 
-- [External Link](https://example.com)
-- Auto-linked URL: https://github.com
-- [Link with Title](https://example.com "Hover to see this title")
+- [GitHub Repository](https://github.com/jparkerweb/print-mark)
+- Auto-linked URL: https://github.com/jparkerweb/print-mark
+- [Link with Title](https://github.com/jparkerweb/print-mark "View print-mark on GitHub")
 
 ---
 
@@ -159,7 +159,7 @@ async function fetchUser(id: string): Promise<User> {
 |---------|-------------|--------|
 | Editor | CodeMirror 6 with Markdown support | ✅ Active |
 | Preview | Real-time HTML rendering | ✅ Active |
-| Themes | 4 print-optimized themes | ✅ Active |
+| Themes | 9 print-optimized themes | ✅ Active |
 | PDF Export | Server-side generation with Puppeteer | ✅ Active |
 
 ### Alignment
@@ -176,7 +176,7 @@ async function fetchUser(id: string): Promise<User> {
 
 Images are supported with optional alt text:
 
-![Placeholder Image](https://via.placeholder.com/600x300/2563eb/ffffff?text=print-mark+Demo)
+![print-mark](https://github.com/jparkerweb/print-mark/blob/main/.readme/print-mark.jpg?raw=true)
 
 ---
 
@@ -198,7 +198,7 @@ Here's a sentence with a footnote[^1]. And another one[^2].
 
 [^1]: This is the first footnote. It can contain multiple paragraphs.
 
-[^2]: This is the second footnote with a [link](https://example.com).
+[^2]: This is the second footnote with a [link](https://github.com/jparkerweb/print-mark).
 
 ---
 
